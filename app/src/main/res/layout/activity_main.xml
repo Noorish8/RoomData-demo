@@ -6,13 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+   <EditText
+       android:id="@+id/et_input"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       android:layout_margin="16dp"
+       android:textSize="16dp"/>
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/et_input"
+        app:layout_constraintStart_toStartOf="@+id/et_input"
+        app:layout_constraintEnd_toEndOf="@+id/et_input"
+        app:layout_constrainedWidth="true"
+        android:text="Submit"
+        android:onClick="submitData"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/white"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+       app:layout_constraintTop_toBottomOf="@+id/btn_submit"
+        app:layout_constraintStart_toStartOf="@+id/et_input"
+        app:layout_constraintEnd_toEndOf="@+id/et_input"
+        tools:listitem="@layout/item_note"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

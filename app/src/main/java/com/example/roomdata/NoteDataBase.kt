@@ -2,8 +2,9 @@ package com.example.roomdata
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.RoomDatabase
 
-abstract  class NoteDataBase {
+abstract  class NoteDataBase: RoomDatabase() {
 
     //we get Dao from here
     abstract fun getNoteDao(): NoteDao
@@ -20,7 +21,7 @@ abstract  class NoteDataBase {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     NoteDataBase::class.java,
-                    "word_database"
+                    "note_database"
                 ).build()
                 INSTANCE = instance
                 // return instance
