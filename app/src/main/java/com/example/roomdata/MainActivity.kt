@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity(), INotesRVAdapter {
           list?.let {
               adapter.updateList(it)
 
+
           }
 
       })
