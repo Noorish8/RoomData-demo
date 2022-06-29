@@ -1,10 +1,9 @@
 package com.example.roomdata
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 
+@Dao
 interface NoteDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
    suspend fun insert(note: Note)
@@ -12,6 +11,6 @@ interface NoteDao {
     @Delete
     suspend fun delete (note: Note)
 
-    @Query("Select * from note_table oder by id Asc")
-    fun getAllNotes():List<Note>
+    @Query("Select * from note_table order by id ASC")
+    fun getAllNotes():LiveData<List<Note>>
 }

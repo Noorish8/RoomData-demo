@@ -12,7 +12,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     val allNotes: LiveData<List<Note>> = TODO()
     init {
         val dao=NoteDataBase.getDatabase(application).getNoteDao()
-        repository =NoteRepository(dao)
+       val  repository =NoteRepository(dao)
         allNotes =repository.allNotes
     }
     //coroutine bacgroung thread
